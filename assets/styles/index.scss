@@ -1,1 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
+
+img {
+opacity: .2;
+}
+
+#userMessage {
+  color: purple;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.box {
+  border: 1px purple solid;
+  padding-bottom: 1rem;
+}
+
+.row {
+  justify-content: center;
+}
