@@ -29,7 +29,19 @@ const onAddCellFailure = () => {
   $('#userMessage').text('The internet fell apart! Please try again!')
 }
 
+const onGameCreateSuccess = () => {
+  console.log('success from ui')
+  $('#userMessage').text("Welcome to a new game! It's the Octopus' turn!")
+}
+
+const onGameCreateFailure = () => {
+  console.log('failure in ui')
+  $('#userMessage').text('We are so embarassed something went wrong! Please click the Reset Game button.')
+}
+
 module.exports = {
   onAddCellSuccess,
-  onAddCellFailure
+  onAddCellFailure,
+  onGameCreateSuccess,
+  onGameCreateFailure
 }

@@ -2,6 +2,8 @@
 // const api = require('./api.js')
 const ui = require('./ui')
 const gameEngine = require('./gameEngine')
+const getFormFields = require('../../../lib/get-form-fields')
+const api = require('./api.js')
 
 // const onSignIn = event => {
 //   event.preventDefault()
@@ -13,10 +15,9 @@ const gameEngine = require('./gameEngine')
 //     .catch(ui.onSignInFailure)
 // }
 
-const OnResetGame = () => {
+const onResetGame = () => {
   gameEngine.resetGame()
   // reset app event listeners
-
   $('#0').off('click')
   $('#1').off('click')
   $('#2').off('click')
@@ -35,6 +36,14 @@ const OnResetGame = () => {
   $('#6').on('click', onSpaceClicked)
   $('#7').on('click', onSpaceClicked)
   $('#8').on('click', onSpaceClicked)
+  onGameCreate()
+}
+
+const onGameCreate = () => {
+  console.log('success from events')
+  api.create()
+    .then(ui.onGameCreateSuccess)
+    .catch(ui.onGameCreateFailure)
 }
 
 const onSpaceClicked = event => {
@@ -50,5 +59,6 @@ const onSpaceClicked = event => {
 
 module.exports = {
   onSpaceClicked,
-  OnResetGame
+  onResetGame,
+  onGameCreate
 }

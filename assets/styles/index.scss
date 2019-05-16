@@ -16,6 +16,10 @@ opacity: .2;
   padding-bottom: 1rem;
 }
 
+.container {
+  pointer-events: none;
+}
+
 .row {
   justify-content: center;
 }

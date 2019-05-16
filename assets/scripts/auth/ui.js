@@ -22,6 +22,7 @@ const onSignInSuccess = (responseData) => {
   store.user = responseData.user
   console.log('store is', store)
   $('form').trigger('reset')
+  $('.container').css('pointer-events', 'auto')
 }
 
 const onSignInFailure = () => {

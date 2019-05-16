@@ -14,7 +14,7 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-pw').on('submit', authEvents.onChangePassword)
-  $('#reset-game').on('submit', gamesEvents.OnResetGame)
+  $('#reset-game').on('submit', gamesEvents.onResetGame)
   $('#0').on('click', gamesEvents.onSpaceClicked)
   $('#1').on('click', gamesEvents.onSpaceClicked)
   $('#2').on('click', gamesEvents.onSpaceClicked)
