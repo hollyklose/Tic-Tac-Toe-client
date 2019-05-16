@@ -1,14 +1,40 @@
 'use strict'
 
+const store = require('../store')
 const cipher = require('./coordCipher')
 
-const board = [ [0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1], [0, 2],
-[1, 2], [2, 2] ]
+// const board = [ [0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1], [0, 2],
+// [1, 2], [2, 2] ]
 
-// const resetGame = () => {
-//   playerOne = []
-//   playerTwo = []
-// }
+const resetGame = () => {
+  event.preventDefault()
+  console.log('in game engine')
+  // RESET images
+  $('#0').attr('src', '/assets/images/bat.png')
+  $('#1').attr('src', '/assets/images/bat.png')
+  $('#2').attr('src', '/assets/images/bat.png')
+  $('#3').attr('src', '/assets/images/bat.png')
+  $('#4').attr('src', '/assets/images/bat.png')
+  $('#5').attr('src', '/assets/images/bat.png')
+  $('#6').attr('src', '/assets/images/bat.png')
+  $('#7').attr('src', '/assets/images/bat.png')
+  $('#8').attr('src', '/assets/images/bat.png')
+  $('#0').css('opacity', '.2')
+  $('#1').css('opacity', '.2')
+  $('#2').css('opacity', '.2')
+  $('#3').css('opacity', '.2')
+  $('#4').css('opacity', '.2')
+  $('#5').css('opacity', '.2')
+  $('#6').css('opacity', '.2')
+  $('#7').css('opacity', '.2')
+  $('#8').css('opacity', '.2')
+  // Reset player to store.playerturn = x
+  store.playerTurn = 'x'
+  console.log('playerturn: ' + store.playerTurn)
+  // set playertracker to octopus, set usermessage to it's player one.
+  $('#playerTracker').text('Player: Octopus!')
+  $('#userMessage').text("It's player one: The Octopus' turn!")
+}
 
 // Return true if the player has won
 const checkForWin = (playerArr) => {
@@ -92,5 +118,11 @@ const checkForTie = (playerOneArr, playerTwoArr) => {
 }
 // ONLY CHECK FOR WIN AFTER PLAYER'S TURN- NEED EVENT LISTENER TO TRIGGER
 // ALSO ONLY CHECK AFTER PLAYER'S THIRD TURN
-console.log('win:' + checkForWin(cipher.playerTwo))
-console.log('tie:' + checkForTie(cipher.playerOne, cipher.playerTwo))
+// console.log('win:' + checkForWin(cipher.playerTwo))
+// console.log('tie:' + checkForTie(cipher.playerOne, cipher.playerTwo))
+
+module.exports = {
+  resetGame,
+  checkForWin,
+  checkForTie
+}
