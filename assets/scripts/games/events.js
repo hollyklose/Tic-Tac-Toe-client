@@ -4,16 +4,8 @@ const ui = require('./ui')
 const gameEngine = require('./gameEngine')
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
-
-// const onSignIn = event => {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   console.log('success from events', formData)
-//   api.signIn(formData)
-//     .then(ui.onSignInSuccess)
-//     .catch(ui.onSignInFailure)
-// }
+const cipher = require('./coordCipher')
+const store = require('../store')
 
 const onResetGame = () => {
   gameEngine.resetGame()
@@ -40,7 +32,6 @@ const onResetGame = () => {
 }
 
 const onGameCreate = () => {
-  console.log('success from events')
   api.create()
     .then(ui.onGameCreateSuccess)
     .catch(ui.onGameCreateFailure)
@@ -49,12 +40,36 @@ const onGameCreate = () => {
 const onSpaceClicked = event => {
   event.preventDefault()
   console.log('events success')
-  // This will need to be sent the id of the space as the index of cells array
-  // Also, it needs to be passed value of x or o based on who the player is.
-  // api.addCell(id, player)
-  // remove parentheses once this is inside .THEN
-  ui.onAddCellSuccess(event.target)
-  // ui.onAddCellFailure()
+  api.update(event.target)
+    .then((responseData) => {
+      store.game = responseData.game
+      console.log('then' + store.game.cells)
+      console.log('WHO', store.playerTurn)
+    })
+    .then(() => {
+      console.log('cells: ', store.game.cells)
+      const playerArr = cipher.cipherData(store.game.cells)
+      console.log('playerArr:', playerArr)
+      if (playerArr.length > 2) {
+        console.log('inside if')
+        if (gameEngine.checkForWin(playerArr)) {
+          console.log('win: ' + store.playerTurn)
+          console.log('wooo:', store.playerTurn)
+          ui.onGameWin(event.target)
+        } else if (gameEngine.checkForTie(store.game.cells)) {
+          console.log('cells:' + store.game.cells)
+          console.log('lose: ' + store.playerTurn)
+          ui.onGameTie(event.target)
+        } else {
+          console.log('come on!')
+          ui.onAddCellSuccess(event.target)
+        }
+      }
+      if (playerArr.length <= 2) {
+        ui.onAddCellSuccess(event.target)
+      }
+    })
+    .catch(ui.onAddCellFailure)
 }
 
 module.exports = {

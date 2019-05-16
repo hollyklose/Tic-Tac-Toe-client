@@ -8,7 +8,6 @@ const cipher = require('./coordCipher')
 
 const resetGame = () => {
   event.preventDefault()
-  console.log('in game engine')
   // RESET images
   $('#0').attr('src', '/assets/images/bat.png')
   $('#1').attr('src', '/assets/images/bat.png')
@@ -30,10 +29,10 @@ const resetGame = () => {
   $('#8').css('opacity', '.2')
   // Reset player to store.playerturn = x
   store.playerTurn = 'x'
-  console.log('playerturn: ' + store.playerTurn)
   // set playertracker to octopus, set usermessage to it's player one.
   $('#playerTracker').text('Player: Octopus!')
   $('#userMessage').text("It's player one: The Octopus' turn!")
+  $('.container').css('pointer-events', 'auto')
 }
 
 // Return true if the player has won
@@ -108,18 +107,19 @@ const checkForWin = (playerArr) => {
   }
   return false
 }
-// IF NO WINNER, CHECK FOR TIE
-const checkForTie = (playerOneArr, playerTwoArr) => {
-  if (playerOneArr.length + playerTwoArr.length === 9) {
+const checkForTie = (playerArr) => {
+  const newArr = []
+  for (let i = 0; i < playerArr.length; i++) {
+    if (playerArr[i] !== '') {
+      newArr.push(playerArr[i])
+    }
+  }
+  if (newArr.length === 9) {
     return true
   } else {
     return false
   }
 }
-// ONLY CHECK FOR WIN AFTER PLAYER'S TURN- NEED EVENT LISTENER TO TRIGGER
-// ALSO ONLY CHECK AFTER PLAYER'S THIRD TURN
-// console.log('win:' + checkForWin(cipher.playerTwo))
-// console.log('tie:' + checkForTie(cipher.playerOne, cipher.playerTwo))
 
 module.exports = {
   resetGame,

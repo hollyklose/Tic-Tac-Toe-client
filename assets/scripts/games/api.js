@@ -13,6 +13,30 @@ const create = () => {
   })
 }
 
+const update = (target) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': target.id,
+          'value': store.playerTurn
+        },
+        'over': false
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateGameOver = () => {
+
+}
+
 module.exports = {
-  create
+  create,
+  update
 }
