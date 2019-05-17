@@ -7,6 +7,7 @@ const onSignUpSuccess = responseData => {
   $('#message').text('Signed up successfully!')
   setTimeout(() => $('#message').text(''), 5000)
   $('form').trigger('reset')
+  $('#sign-up').hide()
 }
 
 const onSignUpFailure = responseData => {
@@ -22,7 +23,14 @@ const onSignInSuccess = (responseData) => {
   store.user = responseData.user
   console.log('store is', store)
   $('form').trigger('reset')
-  $('.container').css('pointer-events', 'auto')
+  $('.container-fluid').css('pointer-events', 'auto')
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-pw').show()
+  $('#reset-game').show()
+  $('#sign-out').show()
+  $('#playerTracker').find('p').find('img').attr('src', '/assets/images/octopus.png')
+  $('#playerTracker').find('p').find('img').css('opacity', '1')
 }
 
 const onSignInFailure = () => {
@@ -35,6 +43,31 @@ const onSignOutSuccess = () => {
   $('#message').text('Signed out successfully!')
   setTimeout(() => $('#message').text(''), 5000)
   $('form').trigger('reset')
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#change-pw').hide()
+  $('#reset-game').hide()
+  $('#sign-out').hide()
+  $('#playerTracker').find('p').find('img').attr('src', '')
+  $('.container-fluid').css('pointer-events', 'none')
+  $('#0').attr('src', '/assets/images/bat.png')
+  $('#1').attr('src', '/assets/images/bat.png')
+  $('#2').attr('src', '/assets/images/bat.png')
+  $('#3').attr('src', '/assets/images/bat.png')
+  $('#4').attr('src', '/assets/images/bat.png')
+  $('#5').attr('src', '/assets/images/bat.png')
+  $('#6').attr('src', '/assets/images/bat.png')
+  $('#7').attr('src', '/assets/images/bat.png')
+  $('#8').attr('src', '/assets/images/bat.png')
+  $('#0').css('opacity', '.2')
+  $('#1').css('opacity', '.2')
+  $('#2').css('opacity', '.2')
+  $('#3').css('opacity', '.2')
+  $('#4').css('opacity', '.2')
+  $('#5').css('opacity', '.2')
+  $('#6').css('opacity', '.2')
+  $('#7').css('opacity', '.2')
+  $('#8').css('opacity', '.2')
 }
 
 const onSignOutFailure = () => {

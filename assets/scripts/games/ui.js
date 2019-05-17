@@ -12,30 +12,28 @@ const onAddCellSuccess = (target) => {
     $(target).attr('src', '/assets/images/octopus.png')
     store.playerTurn = 'o'
     $('#userMessage').text("It's player two: The Chickie's turn!")
-    $('#playerTracker').text('Player: Chickie!')
+    $('#playerTracker').find('p').find('img').attr('src', '/assets/images/duck.png')
   } else {
     $(target).attr('src', '/assets/images/duck.png')
     store.playerTurn = 'x'
     $('#userMessage').text("It's player one: The Octopus' turn!")
-    $('#playerTracker').text('Player: Octopus!')
+    $('#playerTracker').find('p').find('img').attr('src', '/assets/images/octopus.png')
   }
   $(target).off('click')
   $(target).on('click', () => $('#userMessage').text('That space has already been taken!'))
 }
 
 const onAddCellFailure = () => {
-  console.log('cell not added')
   $('#userMessage').text('The internet fell apart! Please try again!')
 }
 
 const onGameCreateSuccess = (responseData) => {
-  console.log('success from ui')
   $('#userMessage').text("Welcome to a new game! It's the Octopus' turn!")
+  $('#playerTracker').find('p').find('img').attr('src', '/assets/images/octopus.png')
   store.game = responseData.game
 }
 
 const onGameCreateFailure = () => {
-  console.log('failure in ui')
   $('#userMessage').text('We are so embarassed something went wrong! Please click the Reset Game button.')
 }
 
@@ -48,8 +46,7 @@ const onGameWin = (target) => {
     $(target).attr('src', '/assets/images/duck.png')
     $('#userMessage').text('The Chickie won!')
   }
-  $('.container').css('pointer-events', 'none')
-  // go back to EVENTS and patch to server
+  $('.container-fluid').css('pointer-events', 'none')
 }
 
 const onGameTie = (target) => {
@@ -60,7 +57,7 @@ const onGameTie = (target) => {
     $(target).attr('src', '/assets/images/duck.png')
   }
   $('#userMessage').text("It's a tie! Push the reset button to play again!")
-  $('.container').css('pointer-events', 'none')
+  $('.container-fluid').css('pointer-events', 'none')
   // go back to EVENTS and patch to server
 }
 

@@ -43,25 +43,23 @@ const onSpaceClicked = event => {
   api.update(event.target)
     .then((responseData) => {
       store.game = responseData.game
-      console.log('then' + store.game.cells)
-      console.log('WHO', store.playerTurn)
     })
     .then(() => {
-      console.log('cells: ', store.game.cells)
       const playerArr = cipher.cipherData(store.game.cells)
-      console.log('playerArr:', playerArr)
       if (playerArr.length > 2) {
-        console.log('inside if')
         if (gameEngine.checkForWin(playerArr)) {
           console.log('win: ' + store.playerTurn)
           console.log('wooo:', store.playerTurn)
-          ui.onGameWin(event.target)
+          api.updateGameOver()
+            .then(ui.onGameWin(event.target))
+            .catch(ui.onGameCreateFailure)
         } else if (gameEngine.checkForTie(store.game.cells)) {
           console.log('cells:' + store.game.cells)
           console.log('lose: ' + store.playerTurn)
-          ui.onGameTie(event.target)
+          api.updateGameOver()
+            .then(ui.onGameTie(event.target))
+            .catch(ui.onGameCreateFailure)
         } else {
-          console.log('come on!')
           ui.onAddCellSuccess(event.target)
         }
       }

@@ -33,10 +33,22 @@ const update = (target) => {
 }
 
 const updateGameOver = () => {
-
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'over': false
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
 }
 
 module.exports = {
   create,
-  update
+  update,
+  updateGameOver
 }

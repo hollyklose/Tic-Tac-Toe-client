@@ -30,9 +30,9 @@ const resetGame = () => {
   // Reset player to store.playerturn = x
   store.playerTurn = 'x'
   // set playertracker to octopus, set usermessage to it's player one.
-  $('#playerTracker').text('Player: Octopus!')
+  $('#playerTracker').find('p').find('img').attr('src', '/assets/images/octopus.png')
   $('#userMessage').text("It's player one: The Octopus' turn!")
-  $('.container').css('pointer-events', 'auto')
+  $('.container-fluid').css('pointer-events', 'auto')
 }
 
 // Return true if the player has won

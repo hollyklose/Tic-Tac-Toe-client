@@ -54,7 +54,6 @@ const cipherData = (cells) => {
   } else if (cells[8] === 'o') {
     store.playerTwo.push([2, 2])
   }
-  console.log('cipher turn', store.playerTurn)
   if (store.playerTurn === 'x') {
     return store.playerOne
   } else {
