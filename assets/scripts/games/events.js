@@ -2,7 +2,6 @@
 // const api = require('./api.js')
 const ui = require('./ui')
 const gameEngine = require('./gameEngine')
-const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const cipher = require('./coordCipher')
 const store = require('../store')

@@ -58,7 +58,15 @@ const onGameTie = (target) => {
   }
   $('#userMessage').text("It's a tie! Push the reset button to play again!")
   $('.container-fluid').css('pointer-events', 'none')
-  // go back to EVENTS and patch to server
+}
+
+const onSignInGetStatsSuccess = (responseData) => {
+  $('#games-played').text(`You have played ${responseData.games.length} games!`)
+  $('#games-won').text(`You have won ${store.gamesWon}!`)
+}
+
+const onSignInGetStatsFailure = () => {
+  $('#games-played').text("We're very sorry, but your stats are unavailable.")
 }
 
 module.exports = {
@@ -67,5 +75,7 @@ module.exports = {
   onGameCreateSuccess,
   onGameCreateFailure,
   onGameWin,
-  onGameTie
+  onGameTie,
+  onSignInGetStatsSuccess,
+  onSignInGetStatsFailure
 }
