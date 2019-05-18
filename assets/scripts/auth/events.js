@@ -50,7 +50,8 @@ const onSignInGetStats = () => {
     })
 
 
-// ADD TIE STATS!!!!!!!
+// ADD TIE STATS!!!!!!! 1. 2. UPON SIGNOUT, REMOVE MESSAGES, 3. UPDATE stats
+// WHEN RESET GAME IS PRESSED OR ONSPACECLICKED WHEN WIN OR TIE
 
 
 
