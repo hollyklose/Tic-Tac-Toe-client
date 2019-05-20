@@ -27,10 +27,10 @@ const onSignInSuccess = (responseData) => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-pw').show()
-  $('#reset-game').show()
+  $('#reset-game-div').show()
   $('#sign-out').show()
-  $('#playerTracker').find('p').find('img').attr('src', '/assets/images/octopus.png')
-  $('#playerTracker').find('p').find('img').css('opacity', '1')
+  $('#playerTracker').find('h2').find('img').attr('src', '/assets/images/octopus.png')
+  $('#playerTracker').find('h2').find('img').css('opacity', '1')
 }
 
 const onSignInFailure = () => {
@@ -46,9 +46,9 @@ const onSignOutSuccess = () => {
   $('#sign-up').show()
   $('#sign-in').show()
   $('#change-pw').hide()
-  $('#reset-game').hide()
+  $('#reset-game-div').hide()
   $('#sign-out').hide()
-  $('#playerTracker').find('p').find('img').attr('src', '')
+  $('#playerTracker').find('h2').find('img').attr('src', '')
   $('.container-fluid').css('pointer-events', 'none')
   $('#0').attr('src', '/assets/images/bat.png')
   $('#1').attr('src', '/assets/images/bat.png')
@@ -68,6 +68,9 @@ const onSignOutSuccess = () => {
   $('#6').css('opacity', '.2')
   $('#7').css('opacity', '.2')
   $('#8').css('opacity', '.2')
+  $('#games-played').text(`Sign in to see how many games you've played!`)
+  $('#games-won').text('')
+  $('#games-tied').text('')
 }
 
 const onSignOutFailure = () => {

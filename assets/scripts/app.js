@@ -11,7 +11,7 @@ const gamesEvents = require('./games/events')
 
 $(() => {
   document.addEventListener('window.onload', $('#change-pw').hide())
-  document.addEventListener('window.onload', $('#reset-game').hide())
+  document.addEventListener('window.onload', $('#reset-game-div').hide())
   document.addEventListener('window.onload', $('#sign-out').hide())
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)

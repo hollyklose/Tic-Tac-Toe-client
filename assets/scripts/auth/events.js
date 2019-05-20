@@ -6,7 +6,6 @@ const ui = require('./ui')
 const gamesApi = require('../games/api')
 const gamesUi = require('../games/ui')
 const gamesEvents = require('../games/events')
-const gameEngine = require('../games/gameEngine')
 const cipher = require('../games/coordCipher')
 const store = require('../store')
 
@@ -34,27 +33,21 @@ const onSignIn = event => {
 const onSignInGetStats = () => {
   gamesApi.getStats()
     .then((responseData) => {
+      store.gamesPlayed = responseData.games.length
       let win = 0
       console.log('responsedata.games', responseData.games)
       for (let i = 0; i < responseData.games.length; i++) {
         const playerArr = cipher.cipherData(responseData.games[i].cells)
         if (playerArr.length > 2) {
-          const isWin = gameEngine.checkForWin(playerArr)
+          const isWin = gamesEvents.checkForWin(playerArr)
           if (isWin) {
             win++
           }
         }
       }
       store.gamesWon = win
-      gamesUi.onSignInGetStatsSuccess(responseData)
+      gamesUi.onSignInGetStatsSuccess()
     })
-
-
-// ADD TIE STATS!!!!!!! 1. 2. UPON SIGNOUT, REMOVE MESSAGES, 3. UPDATE stats
-// WHEN RESET GAME IS PRESSED OR ONSPACECLICKED WHEN WIN OR TIE
-
-
-
     .catch(gamesUi.onSignInGetStatsFailure)
 }
 
@@ -78,5 +71,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onSignInGetStats
 }
