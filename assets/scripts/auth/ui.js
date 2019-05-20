@@ -3,7 +3,6 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  console.log('success', responseData)
   $('#message').text('Signed up successfully!')
   setTimeout(() => $('#message').text(''), 5000)
   $('form').trigger('reset')
@@ -11,7 +10,6 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
-  console.log('failure', responseData)
   $('#message').text('Sign up failed')
   setTimeout(() => $('#message').text(''), 5000)
   $('form').trigger('reset')
@@ -21,7 +19,6 @@ const onSignInSuccess = (responseData) => {
   $('#message').text('Signed in successfully!')
   setTimeout(() => $('#message').text(''), 5000)
   store.user = responseData.user
-  console.log('store is', store)
   $('form').trigger('reset')
   $('.container-fluid').css('pointer-events', 'auto')
   $('#sign-up').hide()
@@ -29,7 +26,7 @@ const onSignInSuccess = (responseData) => {
   $('#change-pw').show()
   $('#reset-game-div').show()
   $('#sign-out').show()
-  $('#playerTracker').find('h2').find('img').attr('src', '/assets/images/octopus.png')
+  $('#playerTracker').find('h2').find('img').attr('src', 'public/octopus.png')
   $('#playerTracker').find('h2').find('img').css('opacity', '1')
 }
 
@@ -50,15 +47,15 @@ const onSignOutSuccess = () => {
   $('#sign-out').hide()
   $('#playerTracker').find('h2').find('img').attr('src', '')
   $('.container-fluid').css('pointer-events', 'none')
-  $('#0').attr('src', '/assets/images/bat.png')
-  $('#1').attr('src', '/assets/images/bat.png')
-  $('#2').attr('src', '/assets/images/bat.png')
-  $('#3').attr('src', '/assets/images/bat.png')
-  $('#4').attr('src', '/assets/images/bat.png')
-  $('#5').attr('src', '/assets/images/bat.png')
-  $('#6').attr('src', '/assets/images/bat.png')
-  $('#7').attr('src', '/assets/images/bat.png')
-  $('#8').attr('src', '/assets/images/bat.png')
+  $('#0').attr('src', 'public/bat.png')
+  $('#1').attr('src', 'public/bat.png')
+  $('#2').attr('src', 'public/bat.png')
+  $('#3').attr('src', 'public/bat.png')
+  $('#4').attr('src', 'public/bat.png')
+  $('#5').attr('src', 'public/bat.png')
+  $('#6').attr('src', 'public/bat.png')
+  $('#7').attr('src', 'public/bat.png')
+  $('#8').attr('src', 'public/bat.png')
   $('#0').css('opacity', '.2')
   $('#1').css('opacity', '.2')
   $('#2').css('opacity', '.2')
@@ -80,14 +77,12 @@ const onSignOutFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  console.log('changed')
   $('#message').text('Changed password successfully!')
   setTimeout(() => $('#message').text(''), 5000)
   $('form').trigger('reset')
 }
 
 const onChangePasswordFailure = () => {
-  console.log('failure')
   $('#message').text('Change password failed')
   setTimeout(() => $('#message').text(''), 5000)
   $('form').trigger('reset')

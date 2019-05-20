@@ -22,11 +22,3 @@ module.exports = {
   chickieMessages,
   tieMessages
 }
-
-// HIGHLIGHT RESET BUTTON AFTER WIN/TIE
-// FIX BOARD ALIGNMENT
-// ****3. DEPLOY and pin in github
-// ****4. readme
-// 5. check requirement checklist
-// *****6. REMOVE ALL CONSOLE.LOGS AND EXTRANEOUS //S!
-// 6. if time, add gamification badges. (also better ui)

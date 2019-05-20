@@ -1,8 +1,11 @@
-Octopus vs. Chickie: Join The Battle!
+OCTOPUS VS. CHICKIE: JOIN THE BATTLE!
 
-Technologies Used: HTML, CSS, Bootstrap, Javascript, JQuery, Curl.
 
-Planning: I got started on the project early by designing the game win and game tie logic, figuring that it would be the easiest piece to code separately before the actual project was officially started. I used the Boggle coding challenge as a model and turned the tic tac toe board into a series of coordinate pairs, which enabled me to write some of the logic mathematically. For instance, the player wins if all the X coordinates or all the Y coordinates are the same. After reading the game API  documents more carefully (and us going over them in class), I discovered that the API would not accept data in this format. Fortunately, all was not lost as I created a cipher file to take the cell array response from the API and turn it into coordinate pairs that my code could use to determine the game win status.
+TECHNOLOGIES USED: HTML, CSS, Bootstrap, Javascript, JQuery, Curl.
+
+
+PLANNING:
+I got started on the project early by designing the game win and game tie logic, figuring that it would be the easiest piece to code separately before the actual project was officially started. I used the Boggle coding challenge as a model and turned the tic tac toe board into a series of coordinate pairs, which enabled me to write some of the logic mathematically. For instance, the player wins if all the X coordinates or all the Y coordinates are the same. After reading the game API  documents more carefully (and us going over them in class), I discovered that the API would not accept data in this format. Fortunately, all was not lost as I created a cipher file to take the cell array response from the API and turn it into coordinate pairs that my code could use to determine the game win status.
 
 After that, I put together some HTML (and a few lines of CSS) as a skeleton, just enough UI to be able to test my functionality going forward. I used bootstrap to make sure my tic tac toe board held together. I went ahead and built all the authorization code (sign up, sign in, sign out, change password).
 
@@ -16,8 +19,24 @@ I then looped the game information through the game logic to figure out how many
 
 I wrote arrays of silly messages related to which player won, whose turn it is and whether there was a tie, which I deliver at random according to the game state. I hope this will keep the game a little more interesting.
 
+
 GAMIFICATION BADGES
 
-WIREFRAMES AND USER STORIES
 
-UNSOLVED PROBLEMS? refactoring loops and functions, multiplayer
+WIREFRAME:  https://imgur.com/ZoBqflY
+
+USER STORIES:
+As a competitive person, I want to see how many times I've won against someone so I can be excited if I'm doing well.
+
+As a parent, I want the x/o icons to change visually to keep my child entertained.
+
+As someone who wants to be entertained when I have down time, I hope the messages about winning etc are creative.
+
+As someone who likes to pretend playing silly online games isn't a waste of time, I'd love to see some indications that I'm "accomplishing" something.
+
+
+UNSOLVED PROBLEMS:
+As far as unsolved problems go, my code could definitely use some refactoring and
+reorganization. Certain pieces of code should be pulled out into separate functions, and there is definitely room to create some loops, especially when resetting ui event listeners or styles.
+
+I would also love to add multiplayer functionality.

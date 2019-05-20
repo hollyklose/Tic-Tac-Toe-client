@@ -22,7 +22,6 @@ const onSignIn = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log('success from events', formData)
   api.signIn(formData)
     .then(ui.onSignInSuccess)
     .then(gamesEvents.onGameCreate)
@@ -35,7 +34,6 @@ const onSignInGetStats = () => {
     .then((responseData) => {
       store.gamesPlayed = responseData.games.length
       let win = 0
-      console.log('responsedata.games', responseData.games)
       for (let i = 0; i < responseData.games.length; i++) {
         const playerArr = cipher.cipherData(responseData.games[i].cells)
         if (playerArr.length > 2) {

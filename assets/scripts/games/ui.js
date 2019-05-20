@@ -20,19 +20,17 @@ const tieMessage = tieMessages => {
 store.playerTurn = 'x'
 
 const onAddCellSuccess = (target) => {
-  console.log('target: ' + target)
-  console.log('playerturn in ui: ' + store.playerTurn)
   $(target).css('opacity', 1)
   if (store.playerTurn === 'x') {
-    $(target).attr('src', '/assets/images/octopus.png')
+    $(target).attr('src', 'public/octopus.png')
     store.playerTurn = 'o'
     $('#userMessage').text(chickieMessage(messages.chickieMessages))
-    $('#playerTracker').find('h2').find('img').attr('src', '/assets/images/duck.png')
+    $('#playerTracker').find('h2').find('img').attr('src', 'public/duck.png')
   } else {
-    $(target).attr('src', '/assets/images/duck.png')
+    $(target).attr('src', 'public/duck.png')
     store.playerTurn = 'x'
     $('#userMessage').text(octopusMessage(messages.octopusMessages))
-    $('#playerTracker').find('h2').find('img').attr('src', '/assets/images/octopus.png')
+    $('#playerTracker').find('h2').find('img').attr('src', 'public/octopus.png')
   }
   $(target).off('click')
   $(target).on('click', () => $('#userMessage').text('That space has already been taken!'))
@@ -44,7 +42,7 @@ const onAddCellFailure = () => {
 
 const onGameCreateSuccess = (responseData) => {
   $('#userMessage').text("Welcome to a new game! It's the Octopus' turn!")
-  $('#playerTracker').find('h2').find('img').attr('src', '/assets/images/octopus.png')
+  $('#playerTracker').find('h2').find('img').attr('src', 'public/octopus.png')
   store.game = responseData.game
 }
 
@@ -55,10 +53,10 @@ const onGameCreateFailure = () => {
 const onGameWin = (target) => {
   $(target).css('opacity', 1)
   if (store.playerTurn === 'x') {
-    $(target).attr('src', '/assets/images/octopus.png')
+    $(target).attr('src', 'public/octopus.png')
     $('#userMessage').text(winMessage(messages.winMessages) + 'The Octopus won! Please Reset Game to play again.')
   } else {
-    $(target).attr('src', '/assets/images/duck.png')
+    $(target).attr('src', 'public/duck.png')
     $('#userMessage').text(winMessage(messages.winMessages) + 'The Chickie won Please Reset Game to play again!')
   }
   $('.container-fluid').css('pointer-events', 'none')
@@ -67,9 +65,9 @@ const onGameWin = (target) => {
 const onGameTie = (target) => {
   $(target).css('opacity', 1)
   if (store.playerTurn === 'x') {
-    $(target).attr('src', '/assets/images/octopus.png')
+    $(target).attr('src', 'public/octopus.png')
   } else {
-    $(target).attr('src', '/assets/images/duck.png')
+    $(target).attr('src', 'public/duck.png')
   }
   $('#userMessage').text(tieMessage(messages.tieMessages))
   $('.container-fluid').css('pointer-events', 'none')

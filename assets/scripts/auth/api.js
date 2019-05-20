@@ -30,8 +30,6 @@ const signOut = () => {
 }
 
 const changePassword = (formData) => {
-  console.log('from api changePassword')
-  console.log('store is', store)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',

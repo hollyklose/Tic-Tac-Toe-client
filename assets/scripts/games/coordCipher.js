@@ -2,9 +2,6 @@
 
 const store = require('../store')
 
-// let cells = ["o","x","o","x","","x","o","x","o"]
-// const cells = []
-
 const cipherData = (cells) => {
   store.playerOne = []
   store.playerTwo = []

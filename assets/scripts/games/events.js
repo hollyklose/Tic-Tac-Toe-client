@@ -1,5 +1,5 @@
 'use strict'
-// const api = require('./api.js')
+
 const ui = require('./ui')
 const api = require('./api.js')
 const cipher = require('./coordCipher')
@@ -29,15 +29,15 @@ const onResetGame = () => {
 
 const resetGame = () => {
   event.preventDefault()
-  $('#0').attr('src', '/assets/images/bat.png')
-  $('#1').attr('src', '/assets/images/bat.png')
-  $('#2').attr('src', '/assets/images/bat.png')
-  $('#3').attr('src', '/assets/images/bat.png')
-  $('#4').attr('src', '/assets/images/bat.png')
-  $('#5').attr('src', '/assets/images/bat.png')
-  $('#6').attr('src', '/assets/images/bat.png')
-  $('#7').attr('src', '/assets/images/bat.png')
-  $('#8').attr('src', '/assets/images/bat.png')
+  $('#0').attr('src', 'public/bat.png')
+  $('#1').attr('src', 'public/bat.png')
+  $('#2').attr('src', 'public/bat.png')
+  $('#3').attr('src', 'public/bat.png')
+  $('#4').attr('src', 'public/bat.png')
+  $('#5').attr('src', 'public/bat.png')
+  $('#6').attr('src', 'public/bat.png')
+  $('#7').attr('src', 'public/bat.png')
+  $('#8').attr('src', 'public/bat.png')
   $('#0').css('opacity', '.2')
   $('#1').css('opacity', '.2')
   $('#2').css('opacity', '.2')
@@ -48,7 +48,7 @@ const resetGame = () => {
   $('#7').css('opacity', '.2')
   $('#8').css('opacity', '.2')
   store.playerTurn = 'x'
-  $('#playerTracker').find('h2').find('img').attr('src', '/assets/images/octopus.png')
+  $('#playerTracker').find('h2').find('img').attr('src', 'public/octopus.png')
   $('#userMessage').text("It's player one: The Octopus' turn!")
   $('.container-fluid').css('pointer-events', 'auto')
   onResetGetStats()
@@ -60,7 +60,6 @@ const onResetGetStats = () => {
     .then(api.getStats)
     .then((responseData) => {
       let win = 0
-      console.log('responsedata.games', responseData.games)
       for (let i = 0; i < responseData.games.length; i++) {
         const playerArr = cipher.cipherData(responseData.games[i].cells)
         if (playerArr.length > 2) {
@@ -75,10 +74,8 @@ const onResetGetStats = () => {
       ui.onSignInGetStatsSuccess()
     })
     .catch(ui.onSignInGetStatsFailure)
-    // .catch(ui.onGameCreateFailure)
 }
 
-// Return true if the player has won
 const checkForWin = (playerArr) => {
   // Check if there are at least 3 matching values of the X coord
   let indexes = {
@@ -163,15 +160,6 @@ const checkForTie = (playerArr) => {
     return false
   }
 }
-
-
-
-
-
-
-
-
-
 const onGameCreate = () => {
   api.create()
     .then(ui.onGameCreateSuccess)
@@ -180,7 +168,6 @@ const onGameCreate = () => {
 
 const onSpaceClicked = event => {
   event.preventDefault()
-  console.log('events success')
   api.update(event.target)
     .then((responseData) => {
       store.game = responseData.game
@@ -189,14 +176,10 @@ const onSpaceClicked = event => {
       const playerArr = cipher.cipherData(store.game.cells)
       if (playerArr.length > 2) {
         if (checkForWin(playerArr)) {
-          console.log('win: ' + store.playerTurn)
-          console.log('wooo:', store.playerTurn)
           api.updateGameOver()
             .then(ui.onGameWin(event.target))
             .catch(ui.onGameCreateFailure)
         } else if (checkForTie(store.game.cells)) {
-          console.log('cells:' + store.game.cells)
-          console.log('lose: ' + store.playerTurn)
           api.updateGameOver()
             .then(ui.onGameTie(event.target))
             .catch(ui.onGameCreateFailure)
