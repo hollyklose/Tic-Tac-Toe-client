@@ -76,6 +76,18 @@ const onGameTie = (target) => {
 const onSignInGetStatsSuccess = () => {
   $('#games-played').text(`You have played ${store.gamesPlayed} games!`)
   $('#games-won').text(`You have won ${store.gamesWon}!`)
+  if (store.gamesPlayed > 9) {
+    $('#10-games-played').css('opacity', 1)
+  }
+  if (store.gamesWon > 9) {
+    $('#10-games-won').css('opacity', 1)
+  }
+  if (store.gamesPlayed > 99) {
+    $('#100-games-played').css('opacity', 1)
+  }
+  if (store.gamesWon > 99) {
+    $('#100-games-won').css('opacity', 1)
+  }
 }
 
 const onSignInGetStatsFailure = () => {

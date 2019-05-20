@@ -20,7 +20,7 @@ I then looped the game information through the game logic to figure out how many
 I wrote arrays of silly messages related to which player won, whose turn it is and whether there was a tie, which I deliver at random according to the game state. I hope this will keep the game a little more interesting.
 
 
-GAMIFICATION BADGES
+Once I had the MVP, I added some badges based on how many games the player has played or won. The idea is to encourage the player to want to play more. I can imagine adding more detailed badges like winning in only 4 moves, etc.
 
 
 WIREFRAME:  https://imgur.com/ZoBqflY

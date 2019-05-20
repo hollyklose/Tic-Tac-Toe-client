@@ -67,6 +67,10 @@ input {
   background-color: purple;
 }
 
+.badge img {
+  opacity: .2;
+}
+
 .board {
   background-color: #d7abef;
   border: 1px purple solid;
@@ -89,10 +93,6 @@ input {
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.middle h2 {
-  padding-left: 2rem;
 }
 
 .left {
