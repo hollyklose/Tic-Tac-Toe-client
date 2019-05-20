@@ -11,7 +11,121 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <h1>Browser Template</h1>
+<body>
+    <header>
+      <div class="auth">
+      <h1><img src="/assets/images/octopus.png"/> vs. <img src="/assets/images/duck.png"/>: Join the Battle!</h1>
+
+      <h2 id="message"></h2>
+
+      <form id="sign-up">
+        <p>Sign Up</p>
+        <input type="email" name="credentials[email]" placeholder="Email" />
+        <input type="password" name="credentials[password]" placeholder="Password" />
+        <input type="password" name="credentials[password_confirmation]" placeholder="Password confirmation" />
+        <input type="submit" value="Sign Up" />
+      </form>
+
+      <form id="sign-in">
+        <p>Sign In</p>
+        <input type="email" name="credentials[email]" placeholder="Email" />
+        <input type="password" name="credentials[password]" placeholder="Password" />
+        <input type="submit" value="Sign In" />
+      </form>
+
+
+      <form id="sign-out">
+        <p>Sign Out</p>
+        <input type="submit" value="Sign Out" />
+      </form>
+
+      <form id="change-pw">
+        <p>Change Password</p>
+        <input type="password" name="passwords[old]" placeholder="Old Password" />
+        <input type="password" name="passwords[new]" placeholder="New Password" />
+        <input type="submit" value="Change Password" />
+      </form>
+
+    </div>
+
+      <div id="stats">
+        <br />
+        <h2 id="games-played">Sign in to find out how many games you've played!</h2>
+        <h2 id="games-won"></h2>
+        <h2 id="games-tied"></h2>
+        <br />
+      </div>
+
+      <div id="reset-game-div">
+        <form id="reset-game">
+          <input type="submit" value="Reset Game">
+        </form>
+    </div>
+
+
+    </header>
+
+
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-4 box left">
+              <div id="playerTracker"><h2>Whose turn?<img src="#" /></h2></div>
+              <h2 id="userMessage">Please sign in to start playing!</h2>
+            </div>
+
+            <div class="col-8 box middle">
+            <div class="row">
+            <div class="col-2 box image-container board">
+              <img id="0" src="/assets/images/bat.png"/>
+            </div>
+            <div class="col-2 box image-container board">
+              <img id="1" src="/assets/images/bat.png" />
+            </div>
+            <div class="col-2 box image-container board">
+              <img id="2" src="/assets/images/bat.png" alt="Silly duck" />
+            </div>
+
+
+          </div>
+
+          <div class="row">
+            <div class="col-2 box image-container board">
+              <img id="3" src="/assets/images/bat.png" alt="Silly octopus" />
+            </div>
+            <div class="col-2 box image-container board">
+              <img id="4" src="/assets/images/bat.png" alt="Silly octopus" />
+            </div>
+            <div class="col-2 box image-container board">
+              <img id="5" src="/assets/images/bat.png" alt="Silly duck" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2 box image-container board">
+              <img id="6" src="/assets/images/bat.png" alt="Silly octopus" />
+            </div>
+            <div class="col-2 box image-container board">
+              <img id="7" src="/assets/images/bat.png" alt="Silly octopus" />
+            </div>
+            <div class="col-2 box image-container board">
+              <img id="8" src="/assets/images/bat.png" alt="Silly duck" />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+        </div>
+
+        <footer>
+          <p><strong>This amazing Tic Tac Toe game is brought to you by the letters </strong><a href="https://www.linkedin.com/in/hollyklose/">H & K!</a></strong></p>
+          <p class="credit">Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+          <p class="credit">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+        </footer>
+
     </body>
+
 </html>

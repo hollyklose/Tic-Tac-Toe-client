@@ -1,1 +1,107 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  background-image: url(../../assets/images/tic-tac-toe-hand-drawn-game.png);
+  color: #fff;
+  font-family: arial, sans-serif;
+}
+
+footer {
+  background-color: rgba(100, 100, 100, .95);
+  padding: 3rem;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer > p {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  text-align: center;
+}
+
+form > p, form > input {
+  display: inline;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+h1 > img {
+  opacity: 1;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+header {
+  background-color: rgba(100, 100, 100, .95);
+  padding: 1rem;
+}
+
+img {
+
+  opacity: .2;
+}
+
+input {
+  margin: .5rem;
+}
+
+.auth {
+  background-color: purple;
+}
+
+.board {
+  background-color: #d7abef;
+  border: 1px purple solid;
+  height: 80px;
+  max-width: 80px;
+  min-width: 80px;
+}
+
+.container-fluid {
+  background-color: rgba(100, 100, 100, .95);
+  pointer-events: none;
+}
+
+.credit {
+  font-size: .7rem;
+  font-style: italic;
+}
+
+.image-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.middle h2 {
+  padding-left: 2rem;
+}
+
+.left {
+  align-self: flex-start;
+  height: 240px;
+}
+
+#stats {
+  color: orange;
+  text-align: center;
+}
+
+#userMessage {
+  background-color: yellow;
+  color: purple;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
