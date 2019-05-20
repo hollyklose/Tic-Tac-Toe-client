@@ -23,7 +23,12 @@ footer > p {
 }
 
 form {
+  font-size: .75rem;
   text-align: center;
+}
+
+form > input {
+  border-radius: 5px;
 }
 
 form > p, form > input {
@@ -41,6 +46,7 @@ h1 > img {
 
 h2 {
   font-size: 1.5rem;
+  text-align: center;
 }
 
 header {
@@ -92,6 +98,13 @@ input {
 .left {
   align-self: flex-start;
   height: 240px;
+}
+
+#reset-game input {
+  font-size: 1rem;
+  border: 2px solid purple;
+  box-shadow: 0 0 10px yellow;
+  outline: none;
 }
 
 #stats {

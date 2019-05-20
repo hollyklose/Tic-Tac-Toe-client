@@ -24,7 +24,7 @@ module.exports = {
 }
 
 // HIGHLIGHT RESET BUTTON AFTER WIN/TIE
-// FIX BOARD ALIGNMENT, SMALLER LOGIN STUFF
+// FIX BOARD ALIGNMENT
 // ****3. DEPLOY and pin in github
 // ****4. readme
 // 5. check requirement checklist
