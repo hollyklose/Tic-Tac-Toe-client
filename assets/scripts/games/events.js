@@ -7,6 +7,8 @@ const store = require('../store')
 
 const onResetGame = () => {
   resetGame()
+  // add a "box" class to each box and then you only need to do this once for each,
+  // rather than using ids like below
   $('#0').off('click')
   $('#1').off('click')
   $('#2').off('click')
