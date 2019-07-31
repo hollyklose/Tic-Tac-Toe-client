@@ -59,7 +59,7 @@ const onGameWin = (target) => {
     $(target).attr('src', 'public/duck.png')
     $('#userMessage').text(winMessage(messages.winMessages) + 'The Chickie won Please Reset Game to play again!')
   }
-  $('.container-fluid').css('pointer-events', 'none')
+  $('.container').css('pointer-events', 'none')
 }
 
 const onGameTie = (target) => {
@@ -70,7 +70,7 @@ const onGameTie = (target) => {
     $(target).attr('src', 'public/duck.png')
   }
   $('#userMessage').text(tieMessage(messages.tieMessages))
-  $('.container-fluid').css('pointer-events', 'none')
+  $('.container').css('pointer-events', 'none')
 }
 
 const onSignInGetStatsSuccess = () => {

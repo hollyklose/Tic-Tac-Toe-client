@@ -6,9 +6,14 @@ body {
   font-family: arial, sans-serif;
 }
 
-footer {
+#inside-body {
   background-color: rgba(100, 100, 100, .95);
-  padding: 3rem;
+  width: 100%;
+  min-height: 100vh;
+}
+
+footer {
+  padding: 1rem 3rem 5rem 3rem;
   text-align: center;
 }
 
@@ -50,12 +55,11 @@ h2 {
 }
 
 header {
-  background-color: rgba(100, 100, 100, .95);
-  padding: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 img {
-
   opacity: .2;
 }
 
@@ -74,13 +78,24 @@ input {
 .board {
   background-color: #d7abef;
   border: 1px purple solid;
-  height: 80px;
-  max-width: 80px;
-  min-width: 80px;
+  position: relative;
+  width: 50%;
 }
 
-.container-fluid {
-  background-color: rgba(100, 100, 100, .95);
+.board:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.board img {
+  position: absolute;
+  width: auto;
+  height: 100%;
+}
+
+.container {
+  padding: 0 1rem;
   pointer-events: none;
 }
 
@@ -95,9 +110,8 @@ input {
   justify-content: center;
 }
 
-.left {
-  align-self: flex-start;
-  height: 240px;
+#playerTracker img {
+  display: none;
 }
 
 #reset-game input {
@@ -117,4 +131,26 @@ input {
   color: purple;
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 0) and (max-width: 600px)
+{
+  .middle {
+    margin: 1rem;
+    padding: 0;
+}
+  #badge {
+    display: block;
+    text-align: center;
+  }
+  .board img {
+    position: absolute;
+  }
 }
